@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <!-- If you delete this meta tag World War Z will become a reality -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundation 5</title>
+
+  <!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
+  <link rel="stylesheet" href="{{ STATIC_URL }}assets/foundation/css/normalize.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}assets/foundation/css/foundation.css">
+  <style type="text/css">
+    .login{
+        margin-top:5em;
+    }
+
+  </style>
+  <!-- If you are using the gem version, you need this only -->
+
+
+  <script src="{{ STATIC_URL }}assets/foundation/js/vendor/modernizr.js"></script>
+
+</head>
+<body ng-app="app" ng-controller="startApp">
+
+  <!-- body content here -->
+  <div class="row">
+      <div class="large-9 large-offset-1 columns panel radius login">
+          <img class="large-4 large-offset-4" src="{{ STATIC_URL }}assets/logo.png"><br>
+          <div class="row">
+              <div class="large-12 columns large-offset-3">
+                  <p>Administración de AxDIRECTORY - Iniciar sesión</p>
+              </div>
+          </div>
+
+          <div class="row">
+                                <hr>
+              <form action="/login" method="post">{% csrf_token %}
+                <div class="large-4 columns "><input placeholder="Nombre de usuario" type="text" name="user"></div>
+                <div class="large-4 columns "><input  type="password" placeholder="Contraseña" name="password"></div>
+                <div class="large-4 columns"><input class="radius button prefix" type="submit" value="iniciar sesion"></div>
+              </form>
+
+          </div>
+          {% if mensaje %}
+              <div data-alert class="alert-box alert">
+                    <!-- Your content goes here -->{{ mensaje }}
+                    <a href="#" class="close">&times;</a>
+              </div>
+          {% endif %}
+      </div>
+  </div>
+
+
+
+  <script src="{{ STATIC_URL }}assets/foundation/js/vendor/jquery.js"></script>
+  <script src="{{ STATIC_URL }}assets/foundation/js/foundation.min.js"></script>
+  <script src="{{ STATIC_URL }}assets/angular.js"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

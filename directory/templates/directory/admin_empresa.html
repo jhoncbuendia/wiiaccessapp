@@ -1,0 +1,50 @@
+{% extends "directory/plantilla.html" %}
+
+
+{% block contenido %}
+   <div ng-controller="empresasController">
+    <table >
+      <thead>
+        <tr>
+          <th >Nombre</th>
+
+
+        </tr>
+      </thead>
+      <tbody ng-repeat="empresa in empresas">
+        <tr>
+          <th >[[empresa.nombre]]</th>
+          <th><a href="#" ng-click="habilitarEdicion(empresa)">Editar</a></th>
+          <th><a href="#" ng-click="eliminar(empresa)">Eliminar</a></th>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <br>
+
+
+    <form id="editar" style="display:none">
+      <fieldset>
+        <legend>Usted esta editando la empresa <span ng-bind="empresa"></span></legend>
+
+        <label>Nuevo Nombre
+          <input type="text" placeholder="Escriba el nombre de la empresa" ng-model="empresa">
+        </label>
+          <a href="#" class="button" ng-click="editar()">Aceptar</a>
+      </fieldset>
+    </form>
+
+
+    <form >
+      <fieldset>
+        <legend>Ingrese los datos de la nueva empresa</legend>
+
+        <label>Nuevo Nombre
+          <input type="text" placeholder="Escriba el nombre de la empresa" ng-model="empresa">
+        </label>
+          <a href="#" class="button" ng-click="editar()">Aceptar</a>
+      </fieldset>
+    </form>
+   </div>
+{% endblock %}

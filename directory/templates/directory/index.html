@@ -1,0 +1,15 @@
+{% extends "directory/plantilla.html" %}
+
+
+{% block contenido %}
+     <h5>Modelos </h5>
+      <ul ng-repeat="modelo in modelos" >
+        <li ng-click="cargarModelo(modelo)"><a href="/directory/admin/[[modelo.nombre]]/list/">[[modelo.nombre]]</a></li>
+      </ul>
+
+      <div class="panel">
+        <h5>Featured</h5>
+        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
+        <a href="#">Read More →</a>
+      </div>
+{% endblock %}
